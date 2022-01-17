@@ -7,6 +7,10 @@ import model.Author;
 
 public class AuthorBO {
     private HttpMethods methods = new HttpMethods();
+    
+    public Response getAuthorById(Integer id) {
+        return methods.get("/api/library/author/" + id);
+    }
 
     public Response getAllAuthors() {
         return methods.get("/api/library/authors");
@@ -24,7 +28,5 @@ public class AuthorBO {
         return methods.put("/api/library/author", JsonParser.convertObjectToJson(author));
     }
 
-    public Response getAuthorById(Integer id) {
-        return methods.get("/api/library/author/" + id);
-    }
+
 }

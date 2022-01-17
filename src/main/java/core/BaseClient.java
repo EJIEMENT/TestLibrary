@@ -16,7 +16,7 @@ public class BaseClient {
                 .filter(new RequestLoggingFilter())
                 .filter(new ResponseLoggingFilter())
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON).log().all();
+                .contentType(ContentType.JSON).log().body();
     }
 
    public RequestSpecification getClient() {

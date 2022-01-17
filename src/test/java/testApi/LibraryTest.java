@@ -18,6 +18,12 @@ public class LibraryTest {
     }
 
     @Test
+    public void getAuthorById() {
+        Response response = authorBO.getAuthorById(148);
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+
+    @Test
     public void createNewAuthor() {
         Author author = new Author("Ukraine", 1, "TestAuthor", new AuthorName("Oleksii", "Konontsev"), new Birth("1973-03-28", "Ukraine", "Lviv"));
         Response response = authorBO.postNewAuthor(author);
@@ -42,10 +48,12 @@ public class LibraryTest {
         Assert.assertEquals(response.getStatusCode(), 200);
         authorBO.deleteAuthor(3);
     }
+
     @Test
-    public void deleteAuthorByInvalidId(){
+    public void deleteAuthorByInvalidId() {
         Response response = authorBO.deleteAuthor(75);
         Assert.assertEquals(response.getStatusCode(), 404);
     }
+
 
 }
