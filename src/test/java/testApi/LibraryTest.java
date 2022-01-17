@@ -42,4 +42,10 @@ public class LibraryTest {
         Assert.assertEquals(response.getStatusCode(), 200);
         authorBO.deleteAuthor(3);
     }
+    @Test
+    public void deleteAuthorByInvalidId(){
+        Response response = authorBO.deleteAuthor(75);
+        Assert.assertEquals(response.getStatusCode(), 404);
+    }
+
 }
