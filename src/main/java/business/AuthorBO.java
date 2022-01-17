@@ -7,7 +7,7 @@ import model.Author;
 
 public class AuthorBO {
     private HttpMethods methods = new HttpMethods();
-    
+
     public Response getAuthorById(Integer id) {
         return methods.get("/api/library/author/" + id);
     }
